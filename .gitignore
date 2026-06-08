@@ -1,0 +1,50 @@
+# Virtual environments (repo root or nested)
+.venv/
+venv/
+env/
+ENV/
+datafusion/.venv/
+
+# Secrets / local config (keep .env.example tracked)
+.env
+.env.*
+!.env.example
+datafusion/.env
+
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Packaging / build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+
+# Test / coverage / type-check caches
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+
+# Snowflake / Snowpark local artifacts
+*.log
+snowflake_login_token
+.snowsql/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Local scratch / incomplete git checks
+.gitcheck_tmp/
