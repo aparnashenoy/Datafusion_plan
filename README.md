@@ -35,7 +35,7 @@ architecture, enriched with Snowflake Cortex AI.
 ## Project layout
 
 ```
-datafusion/
+.
   CLAUDE.md              # Project guide / conventions
   .env.example           # Credential template
   requirements.txt       # Python dependencies
@@ -57,13 +57,12 @@ datafusion/
 
 ## Setup
 
-From the repository root (recommended — keeps `.venv` out of the project tree):
+From the repository root:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r datafusion/requirements.txt
-cd datafusion
+pip install -r requirements.txt
 cp .env.example .env   # fill in Snowflake credentials (see below)
 ```
 
@@ -82,7 +81,7 @@ cp .env.example .env   # fill in Snowflake credentials (see below)
 
 ### Verify connection
 
-Run from the `datafusion/` directory with the venv activated:
+With the venv activated:
 
 ```bash
 python -c "from config.settings import test_connection; test_connection()"
@@ -102,7 +101,7 @@ Project scaffold: `CLAUDE.md`, `.env.example`, `requirements.txt`, directory str
 
 ### Phase 2 — Connection
 
-`config/settings.py` loads credentials from `datafusion/.env` and exposes:
+`config/settings.py` loads credentials from `.env` at the repo root and exposes:
 
 - `get_session()` — returns a configured Snowpark `Session`
 - `test_connection()` — runs `SELECT CURRENT_VERSION()`
@@ -267,8 +266,7 @@ pytest tests/ -v
 
 ```bash
 # 1. Local setup
-source ../.venv/bin/activate
-cd datafusion
+source .venv/bin/activate
 python -c "from config.settings import test_connection; test_connection()"
 
 # 2. Bronze DDL (Snowflake Worksheets or snowsql)
